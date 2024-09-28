@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ story.title }}</h2>
+    <p>{{ story.narrative }}</p>
+    <form action="/add_choice" method="post">
+        <input type="hidden" name="story_id" value="{{ story.id }}">
+        <input type="text" name="text" placeholder="Add a choice">
+        <button type="submit">Add Choice</button>
+    </form>
+    <button onclick="generateStory()">Generate Next Part</button>
+    <div id="next-part"></div>
+{% endblock %}
